@@ -14,21 +14,32 @@ namespace muhaha.ADImageSync.Console
     {
         private static void Main(string[] args)
         {
-            ChangeImage();
+            System.Console.WriteLine("Sync Active Directory user images to Team Foundation Server");
+            System.Console.WriteLine();
+
+            try
+            {
+                System.Console.WriteLine("Enter TFS Uri (https://servername:port/tfs)");
+                var input = System.Console.ReadLine();
+                ChangeImage(input);
+            }
+            catch (Exception exception)
+            {
+                System.Console.WriteLine(exception.ToString());
+            }
+            
+            System.Console.ReadKey();
         }
 
-        public static void ChangeImage()
+        public static void ChangeImage(string tfsUri)
         {
-            var teamFoundationServer = new TeamFoundationServer("http://tfs02.techtalk.at:8080/tfs");
-
+            var teamFoundationServer = new TfsTeamProjectCollection(new Uri(tfsUri));
             var service = teamFoundationServer.GetService<FilteredIdentityService>();
             var service2 = teamFoundationServer.GetService<IIdentityManagementService2>();
 
-            //foreach (TeamFoundationIdentity identity in service.SearchForUsers("Barbara"))
             foreach (TeamFoundationIdentity identity in service.SearchForUsers(""))
             {
                 if (!identity.IsActive) continue;
-                //if (!identity.DisplayName.Contains("Barbara")) return;
 
                 byte[] adImage = ADHelper.GetImageFromAD(identity.UniqueName);
                 if (adImage == null) continue;
@@ -68,9 +79,12 @@ namespace muhaha.ADImageSync.Console
             ImageCodecInfo[] info = ImageCodecInfo.GetImageEncoders();
             var encoderParameters = new EncoderParameters(1);
             encoderParameters.Param[0] = new EncoderParameter(Encoder.Quality, 100L);
-            string filename = "Images/" + identity.DisplayName + "." + imageFormat.ToString();
-            if (!Directory.Exists(filename))
-                Directory.CreateDirectory(filename);
+            
+            const string imageFoldername = "Images";
+            
+            string filename = imageFoldername + "/" + identity.DisplayName + "." + imageFormat.ToString();
+            if (!Directory.Exists(imageFoldername))
+                Directory.CreateDirectory(imageFoldername);
 
             image.Save(filename, info[1], encoderParameters);
         }
