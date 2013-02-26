@@ -9,8 +9,10 @@ namespace muhaha.TFS.ADImageSync.Job
 {
     public class SyncImagesJob : ITeamFoundationJobExtension
     {
-        public TeamFoundationJobExecutionResult Run(TeamFoundationRequestContext requestContext, TeamFoundationJobDefinition jobDefinition, DateTime queueTime,
-                                                    out string resultMessage)
+        public static readonly Guid JobId = new Guid("66590D0D-3D89-4A04-878A-2204E9077E50");
+        public const string JobName = "AD Image Sync Job";
+
+        public TeamFoundationJobExecutionResult Run(TeamFoundationRequestContext requestContext, TeamFoundationJobDefinition jobDefinition, DateTime queueTime, out string resultMessage)
         {
             resultMessage = "";
             try

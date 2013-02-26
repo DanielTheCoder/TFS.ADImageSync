@@ -27,8 +27,8 @@ namespace muhaha.ADImageSync.Console
             {
                 System.Console.WriteLine(exception.ToString());
             }
-            
-            System.Console.ReadKey();
+
+            System.Console.ReadLine();
         }
 
         public static void ChangeImage(string tfsUri)
