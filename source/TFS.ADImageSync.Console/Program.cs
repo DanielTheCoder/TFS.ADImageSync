@@ -47,7 +47,7 @@ namespace muhaha.ADImageSync.Console
 
                 //to quadrasize image
                 Image image = ImageHelper.ByteArrayToImage(adImage);
-                var newImage = QuadrasizeImage(image);
+                var newImage = ImageHelper.QuadrasizeImage(image);
 
                 //store image local
                 ImageFormat adImageFormat = ImageFormatHelper.GetImageFormat(adImage);
@@ -65,13 +65,6 @@ namespace muhaha.ADImageSync.Console
 
                 service2.UpdateExtendedProperties(identity);
             }
-        }
-
-        private static Image QuadrasizeImage(Image image)
-        {
-            int max = image.Width > image.Height ? image.Width : image.Height;
-            Image newImage = ImageHelper.ResizeImage(image, max, max, image.Width, image.Height);
-            return newImage;
         }
 
         private static void DumpImageToLocalPath(TeamFoundationIdentity identity, ImageFormat imageFormat, Image image)

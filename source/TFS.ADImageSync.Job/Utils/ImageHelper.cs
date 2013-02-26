@@ -26,6 +26,18 @@ namespace muhaha.Utils.Drawing.Imaging
             }
         }
 
+        public static Image QuadrasizeImage(Image image)
+        {
+            int max = image.Width > image.Height ? image.Width : image.Height;
+            Image newImage = ResizeImage(image, max, max, image.Width, image.Height);
+            return newImage;
+        }
+
+        /// <summary>
+        /// original version: http://stackoverflow.com/questions/1397512/find-image-format-using-bitmap-object-in-c-sharp
+        /// </summary>
+        /// <param name="image"></param>
+        /// <returns></returns>
         public static System.Drawing.Imaging.ImageFormat GetImageFormat(this Image image)
         {
             if (image.RawFormat.Equals(System.Drawing.Imaging.ImageFormat.Jpeg))
@@ -50,23 +62,15 @@ namespace muhaha.Utils.Drawing.Imaging
                 return System.Drawing.Imaging.ImageFormat.Wmf;
         }
 
-        public static Image ResizeImage(Image image,
-            /* note changed names */
-                                         int canvasWidth, int canvasHeight,
-            /* new */
-                                         int originalWidth, int originalHeight)
+        public static Image ResizeImage(Image image, int canvasWidth, int canvasHeight, int originalWidth, int originalHeight)
         {
-            //Image image = Image.FromFile(path + originalFilename);
-
-            Image thumbnail = new Bitmap(canvasWidth, canvasHeight); // changed parm names
+            Image thumbnail = new Bitmap(canvasWidth, canvasHeight);
             Graphics graphic = Graphics.FromImage(thumbnail);
 
             graphic.InterpolationMode = InterpolationMode.HighQualityBicubic;
             graphic.SmoothingMode = SmoothingMode.HighQuality;
             graphic.PixelOffsetMode = PixelOffsetMode.HighQuality;
             graphic.CompositingQuality = CompositingQuality.HighQuality;
-
-            /* ------------------ new code --------------- */
 
             // Figure out the ratio
             double ratioX = canvasWidth / (double)originalWidth;
@@ -85,8 +89,6 @@ namespace muhaha.Utils.Drawing.Imaging
 
             graphic.Clear(Color.White); // white padding
             graphic.DrawImage(image, posX, posY, newWidth, newHeight);
-
-            /* ------------- end new code ---------------- */
 
             return thumbnail;
         }
