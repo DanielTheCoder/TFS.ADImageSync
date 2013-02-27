@@ -33,6 +33,16 @@ c:\Program Files\Microsoft Team Foundation Server 11.0\Application Tier\TFSJobAg
 select * from tfs_configuration.dbo.tbl_JobHistory where jobid = '66590D0D-3D89-4A04-878A-2204E9077E50'
 
 
+### Diagnostic
+To check if the job is running without any errors TFS 2012 provides the not documented diagnostic page at
+ 
+- http://servername:port/tfs/_oi/   
+
+Job details can be found here:
+
+- http://servername:port/tfs/_oi/_JobMonitoring#_a=history&id=66590D0D-3D89-4A04-878A-2204E9077E50
+
+
 ADImageSync.JobInstaller
 ------------------
 Console installer for ADImageSyncJob
