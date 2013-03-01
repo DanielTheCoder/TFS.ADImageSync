@@ -48,6 +48,7 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TfsImageUploader.cs" />
     <Compile Include="Utils\ADHelper.cs" />
     <Compile Include="Utils\ImageFormatHelper.cs" />
     <Compile Include="SyncImagesJob.cs" />
