@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADImageSync.JobInstaller", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADImageSync.Console", "TFS.ADImageSync.Console\ADImageSync.Console.csproj", "{830F8051-2BF3-4250-BB0B-C88897D7F361}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GravatarSync.Job", "TFS.GravatarSync.Job\GravatarSync.Job.csproj", "{3549E04A-9D60-464A-B34E-A9F6DCE87851}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{830F8051-2BF3-4250-BB0B-C88897D7F361}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{830F8051-2BF3-4250-BB0B-C88897D7F361}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{830F8051-2BF3-4250-BB0B-C88897D7F361}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3549E04A-9D60-464A-B34E-A9F6DCE87851}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3549E04A-9D60-464A-B34E-A9F6DCE87851}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3549E04A-9D60-464A-B34E-A9F6DCE87851}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3549E04A-9D60-464A-B34E-A9F6DCE87851}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
