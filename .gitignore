@@ -116,3 +116,6 @@ App_Data/*.ldf
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+
+#TFS related references
+Microsoft.TeamFoundation.Framework.Server.dll
