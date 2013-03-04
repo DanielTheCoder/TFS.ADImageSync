@@ -50,6 +50,7 @@
     <Compile Include="..\TFS.ADImageSync.Job\Utils\ImageHelper.cs">
       <Link>Utils\ImageHelper.cs</Link>
     </Compile>
+    <Compile Include="GravatarHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SyncImagesJob.cs" />
   </ItemGroup>

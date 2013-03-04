@@ -23,14 +23,6 @@ namespace muhaha.TFS.Jobs.ImageSync
                 {
                     foreach (TeamFoundationIdentity identity in identities.Items)
                     {
-                        //KeyValue<string, string>[] attributesSet = identity.AttributesSet;
-                        //var enumerable = attributesSet.Select(i => i.Key + " - " + i.Value).ToList();
-                        //enumerable.Insert(0, identity.DisplayName);
-                        //var contents = string.Join(Environment.NewLine, enumerable);
-                        ////ConfirmedNotificationAddress
-                        //File.AppendAllText("C:\temp\attributes", contents);
-
-                        //var adImage = ADHelper.GetImageFromAD(identity.UniqueName);
                         var adImage = imageProviderFunc(identity);
                         if (adImage == null)
                             continue;
