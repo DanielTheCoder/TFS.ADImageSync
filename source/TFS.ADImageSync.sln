@@ -6,8 +6,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C6F06AC3-037A-4C20-BCD3-105A1E63F84E}"
 	ProjectSection(SolutionItems) = preProject
 		..\README.md = ..\README.md
-		PowershellScripts\Schedule_AdImageSyncJob.ps1 = PowershellScripts\Schedule_AdImageSyncJob.ps1
-		PowershellScripts\Schedule_IdentitySyncJob.ps1 = PowershellScripts\Schedule_IdentitySyncJob.ps1
 		TFS.ADImageSync.sln.DotSettings = TFS.ADImageSync.sln.DotSettings
 	EndProjectSection
 EndProject
@@ -19,6 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PowershellScripts", "Powers
 	ProjectSection(SolutionItems) = preProject
 		PowershellScripts\Schedule_AdImageSyncJob.ps1 = PowershellScripts\Schedule_AdImageSyncJob.ps1
 		PowershellScripts\Schedule_IdentitySyncJob.ps1 = PowershellScripts\Schedule_IdentitySyncJob.ps1
+		PowershellScripts\TFS_Jobs.ps1 = PowershellScripts\TFS_Jobs.ps1
 	EndProjectSection
 EndProject
 Global
