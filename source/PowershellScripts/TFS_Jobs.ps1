@@ -35,20 +35,26 @@ function TFSInstallJob(
 	[string] $JobFullName,
 	[int] $ScheduleInterval)
 {
-	Add-Type -AssemblyName 'Microsoft.TeamFoundation.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'
+	# [appdomain]::currentdomain.getassemblies() | sort -property fullname | format-table fullname
+	# Add-Type -AssemblyName 'Microsoft.TeamFoundation.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'
 	Add-Type -AssemblyName 'Microsoft.TeamFoundation.Client, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'
+
+	#Add-Type -Path 'C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\ReferenceAssemblies\v2.0\Microsoft.TeamFoundation.Client.dll'
+	#Add-Type -AssemblyName 'Microsoft.TeamFoundation.Client'
 
 	$Server = [Microsoft.TeamFoundation.Client.TfsConfigurationServerFactory]::GetConfigurationServer($ServerUri)
 	$Server.EnsureAuthenticated()
 	$JobService = $Server.GetService([Microsoft.TeamFoundation.Framework.Client.ITeamFoundationJobService])
-	$JobState = [Microsoft.TeamFoundation.Framework.Common.TeamFoundationJobEnabledState]"Enabled"
+	$JobState = [Microsoft.TeamFoundation.Framework.Common.TeamFoundationJobEnabledState]::Enabled
+	$xml = [System.Xml.XmlNode]$null
 	
-	$Definition = New-Object -TypeName [ Microsoft.TeamFoundation.Framework.Client.TeamFoundationJobDefinition] ($JobId, $JobName, $JobFullName, $null, $JobState)
+	$Definition = New-Object -TypeName Microsoft.TeamFoundation.Framework.Client.TeamFoundationJobDefinition ($JobId, $JobName, $JobFullName, $xml, $JobState)
 	
-	$Schedule = New-Object -TypeName [Microsoft.TeamFoundation.Framework.Client.TeamFoundationJobSchedule] –ArgumentList Get-Date $ScheduleInterval
+	$Now = Get-Date
+	$Schedule = New-Object -TypeName Microsoft.TeamFoundation.Framework.Client.TeamFoundationJobSchedule ($Now, $ScheduleInterval)
+	
 	$Definition.Schedule.Add($Schedule)
-	
-	$Server.UpdateJob($Definition)
+	$JobService.UpdateJob($Definition)
 	
 	TFSScheduleImmediateJob $ServerUri $JobId
 }
