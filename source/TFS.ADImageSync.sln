@@ -15,6 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADImageSync.Console", "TFS.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PowershellScripts", "PowershellScripts", "{D31637B0-31D3-473F-923D-DA5CDC9AEB9E}"
 	ProjectSection(SolutionItems) = preProject
+		PowershellScripts\Install_AdImageSyncJob.ps1 = PowershellScripts\Install_AdImageSyncJob.ps1
 		PowershellScripts\Schedule_AdImageSyncJob.ps1 = PowershellScripts\Schedule_AdImageSyncJob.ps1
 		PowershellScripts\Schedule_IdentitySyncJob.ps1 = PowershellScripts\Schedule_IdentitySyncJob.ps1
 		PowershellScripts\TFS_Jobs.ps1 = PowershellScripts\TFS_Jobs.ps1
