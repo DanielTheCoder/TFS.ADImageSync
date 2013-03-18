@@ -11,6 +11,9 @@ Set-StrictMode -Version Latest
 $scriptDir = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
 & $scriptDir\TFS_Jobs.ps1
 
-$IdentitySyncJobId = [guid]'544dd581-f72a-45a9-8de0-8cd3a5f29dfe'
+$JobId = [guid]'66590D0D-3D89-4A04-878A-2204E9077E50'
+$JobName = [string]"AD Image Sync Job"
+$JobFullName = [string]"muhaha.TFS.ADImageSync.Job.SyncImagesJob"
+$ScheduleInterval = [int]24*60*60
 
-TFSScheduleImmediateJob $ServerUri $IdentitySyncJobId
+TFSInstallJob $ServerUri $JobId $JobName $JobFullName $ScheduleInterval
