@@ -17,7 +17,8 @@ namespace muhaha.TFS.GravatarSync.Job
             //https://gist.github.com/danesparza/973923
             //http://danesparza.net/2010/10/using-gravatar-images-with-c-asp-net/
             //http://www.codeproject.com/Articles/332404/Gravatar-avatars-in-Csharp-for-NET
-            Func<TeamFoundationIdentity, byte[]> imageProviderFunc = tfi => GetGravatarImage(requestContext, tfi); //todo => getimage from Gravatar
+
+            Func<TeamFoundationIdentity, byte[]> imageProviderFunc = tfi => GetGravatarImage(requestContext, tfi);
             var run = TfsImageUploader.Run(requestContext, imageProviderFunc);
             resultMessage = run.Item2;
             return run.Item1;
@@ -27,26 +28,24 @@ namespace muhaha.TFS.GravatarSync.Job
         {
             var service = requestContext.GetService<TeamFoundationIdentityService>();
 
-            //File.AppendAllText(@"C:\temp\attributes.txt", identity.UniqueName);
-
             string preferredEmailAddress = service.GetPreferredEmailAddress(requestContext, identity.TeamFoundationId);
-            //File.AppendAllText(@"C:\temp\attributes.txt", preferredEmailAddress);
-
+            
+            //Note [ds, 2013.03.18] if we don't have any mail adress -> skip updating
             if (string.IsNullOrWhiteSpace(preferredEmailAddress))
                 return null;
 
-            //IdentityDescriptor identityDescriptor = identity.Descriptor;
-            //TeamFoundationIdentity teamFoundationIdentity = service.ReadIdentity(requestContext, identityDescriptor, MembershipQuery.None, ReadIdentityOptions.ExtendedProperties);
+            IdentityDescriptor identityDescriptor = identity.Descriptor;
+            TeamFoundationIdentity teamFoundationIdentity = service.ReadIdentity(requestContext, identityDescriptor, MembershipQuery.None, ReadIdentityOptions.ExtendedProperties);
 
-            //var attributesSet = teamFoundationIdentity.AttributesSet;
-            //if (attributesSet == null)
-            //    return null;
+            var attributesSet = teamFoundationIdentity.AttributesSet;
+            if (attributesSet == null)
+                return null;
 
-            //var enumerable = attributesSet.Select(i => i.Key + " - " + i.Value).ToList();
-            //enumerable.Insert(0, identity.DisplayName);
-            //var contents = string.Join(Environment.NewLine, enumerable);
-            ////ConfirmedNotificationAddress
-            //File.AppendAllText(@"C:\temp\attributes.txt", contents);
+            var enumerable = attributesSet.Select(i => i.Key + " - " + i.Value).ToList();
+            enumerable.Insert(0, identity.DisplayName);
+            var contents = string.Join(Environment.NewLine, enumerable);
+            //ConfirmedNotificationAddress
+            File.AppendAllText(@"C:\temp\attributes.txt", contents);
 
             //return null;
             return GravatarHelper.GetGravatarImage(preferredEmailAddress);
