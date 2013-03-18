@@ -28,7 +28,7 @@ ADImageSyncJob is a Team Foundation Server 2012 server extension which can sync 
 ### Installation
 1. Copy the compiled job to the following folder and restart the tfs agent service.  
 c:\Program Files\Microsoft Team Foundation Server 11.0\Application Tier\TFSJobAgent\plugins
-2. Then run the ADImageSync.JobInstaller application to register the job. 
+2. Then run the Install_AdImageSyncJob.ps1 powershell script to register the job. 
 3. Finally check the state of the job by looking in the tfs database  
 select * from tfs_configuration.dbo.tbl_JobHistory where jobid = '66590D0D-3D89-4A04-878A-2204E9077E50'
 
@@ -41,11 +41,6 @@ To check if the job is running without any errors TFS 2012 provides the not docu
 Job details can be found here:
 
 - http://servername:port/tfs/_oi/_JobMonitoring#_a=history&id=66590D0D-3D89-4A04-878A-2204E9077E50
-
-
-ADImageSync.JobInstaller
-------------------
-Console installer for ADImageSyncJob
 
 
 How to build
