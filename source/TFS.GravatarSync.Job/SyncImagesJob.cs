@@ -10,7 +10,7 @@ namespace muhaha.TFS.GravatarSync.Job
     public class SyncImagesJob : ITeamFoundationJobExtension
     {
         public static readonly Guid JobId = new Guid("8DB6C6A0-8C3E-476F-B7E0-21E692C1A53C");
-        public const string JobName = "Gravatar Image Sync Job";
+        public const string JobName = "Gravatar User Image Sync Job";
 
         public TeamFoundationJobExecutionResult Run(TeamFoundationRequestContext requestContext, TeamFoundationJobDefinition jobDefinition, DateTime queueTime, out string resultMessage)
         {
