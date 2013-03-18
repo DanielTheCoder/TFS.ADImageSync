@@ -11,7 +11,7 @@ Overview
 ### Components
 - ADImageSync.Console
 - ADImageSync.Job
-- ADImageSync.JobInstaller
+- Powershell Scripts
 
 ### Orignial implementation
 Original implementation provided by [Betty](http://bzbetty.blogspot.com "Betty")  
@@ -21,7 +21,7 @@ ADImageSync.Console
 ------------------
 Console client for one time synchronisation
 
-ADImageSyncJob
+ADImageSync.Job
 ------------------
 ADImageSyncJob is a Team Foundation Server 2012 server extension which can sync your Active Directory images to Team Foundation Server 2012 on regular basis.  
 
@@ -42,6 +42,9 @@ Job details can be found here:
 
 - http://servername:port/tfs/_oi/_JobMonitoring#_a=history&id=66590D0D-3D89-4A04-878A-2204E9077E50
 
+Powershell Scripts
+------------------
+A collection of scripts to install and schedule tfs jobs.
 
 How to build
 ------------------
