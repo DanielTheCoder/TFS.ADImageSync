@@ -42,7 +42,7 @@
 <ul>
 <li>ADImageSync.Console</li>
 <li>ADImageSync.Job</li>
-<li>ADImageSync.JobInstaller</li>
+<li>Powershell Scripts</li>
 </ul><h3>Orignial implementation</h3>
 
 <p>Original implementation provided by <a href="http://bzbetty.blogspot.com" title="Betty">Betty</a><br>
@@ -52,7 +52,7 @@ More details can be found here: <a href="http://bzbetty.blogspot.co.at/2013/02/t
 
 <p>Console client for one time synchronisation</p>
 
-<h2>ADImageSyncJob</h2>
+<h2>ADImageSync.Job</h2>
 
 <p>ADImageSyncJob is a Team Foundation Server 2012 server extension which can sync your Active Directory images to Team Foundation Server 2012 on regular basis.  </p>
 
@@ -61,7 +61,7 @@ More details can be found here: <a href="http://bzbetty.blogspot.co.at/2013/02/t
 <ol>
 <li>Copy the compiled job to the following folder and restart the tfs agent service.<br>
 c:\Program Files\Microsoft Team Foundation Server 11.0\Application Tier\TFSJobAgent\plugins</li>
-<li>Then run the ADImageSync.JobInstaller application to register the job. </li>
+<li>Then run the Install_AdImageSyncJob.ps1 powershell script to register the job. </li>
 <li>Finally check the state of the job by looking in the tfs database<br>
 select * from tfs_configuration.dbo.tbl_JobHistory where jobid = '66590D0D-3D89-4A04-878A-2204E9077E50'</li>
 </ol><h3>Diagnostic</h3>
@@ -75,9 +75,9 @@ select * from tfs_configuration.dbo.tbl_JobHistory where jobid = '66590D0D-3D89-
 
 <ul>
 <li>http://servername:port/tfs/_oi/_JobMonitoring#_a=history&amp;id=66590D0D-3D89-4A04-878A-2204E9077E50</li>
-</ul><h2>ADImageSync.JobInstaller</h2>
+</ul><h2>Powershell Scripts</h2>
 
-<p>Console installer for ADImageSyncJob</p>
+<p>A collection of scripts to install and schedule tfs jobs.</p>
 
 <h2>How to build</h2>
 
