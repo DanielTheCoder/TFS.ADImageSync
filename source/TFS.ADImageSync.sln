@@ -9,8 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TFS.ADImageSync.sln.DotSettings = TFS.ADImageSync.sln.DotSettings
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADImageSync.JobInstaller", "TFS.ADImageSync.JobInstaller\ADImageSync.JobInstaller.csproj", "{7404EBE5-18D4-489D-A826-24EC60B439DE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADImageSync.Console", "TFS.ADImageSync.Console\ADImageSync.Console.csproj", "{830F8051-2BF3-4250-BB0B-C88897D7F361}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PowershellScripts", "PowershellScripts", "{D31637B0-31D3-473F-923D-DA5CDC9AEB9E}"
@@ -31,10 +29,6 @@ Global
 		{10F425D1-5273-4C32-B0FE-48EA66576AA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10F425D1-5273-4C32-B0FE-48EA66576AA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10F425D1-5273-4C32-B0FE-48EA66576AA4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7404EBE5-18D4-489D-A826-24EC60B439DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7404EBE5-18D4-489D-A826-24EC60B439DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7404EBE5-18D4-489D-A826-24EC60B439DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7404EBE5-18D4-489D-A826-24EC60B439DE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{830F8051-2BF3-4250-BB0B-C88897D7F361}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{830F8051-2BF3-4250-BB0B-C88897D7F361}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{830F8051-2BF3-4250-BB0B-C88897D7F361}.Release|Any CPU.ActiveCfg = Release|Any CPU
