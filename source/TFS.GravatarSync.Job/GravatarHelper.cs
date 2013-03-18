@@ -10,6 +10,10 @@ namespace muhaha.TFS.GravatarSync.Job
 {
     public static class GravatarHelper
     {
+        //https://gist.github.com/danesparza/973923
+        //http://danesparza.net/2010/10/using-gravatar-images-with-c-asp-net/
+        //http://www.codeproject.com/Articles/332404/Gravatar-avatars-in-Csharp-for-NET
+
         public static byte[] GetGravatarImage(string email)
         {
             var url = GetGravatarUrl(email);
@@ -24,8 +28,8 @@ namespace muhaha.TFS.GravatarSync.Job
             }
             catch (Exception exception)
             {
-                File.AppendAllText(@"C:\temp\attributes.txt", exception.ToString());
-                File.AppendAllText(@"C:\temp\attributes.txt", Environment.NewLine);
+                //File.AppendAllText(@"C:\temp\attributes.txt", exception.ToString());
+                //File.AppendAllText(@"C:\temp\attributes.txt", Environment.NewLine);
             }
 
             return null;
