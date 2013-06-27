@@ -13,6 +13,7 @@ namespace muhaha.TFS.GravatarSync.Job
         //https://gist.github.com/danesparza/973923
         //http://danesparza.net/2010/10/using-gravatar-images-with-c-asp-net/
         //http://www.codeproject.com/Articles/332404/Gravatar-avatars-in-Csharp-for-NET
+        //https://en.gravatar.com/site/implement/images/
 
         public static byte[] GetGravatarImage(string email)
         {
@@ -41,7 +42,7 @@ namespace muhaha.TFS.GravatarSync.Job
             var hash = HashEmailForGravatar(email);
 
             //  Assemble the url and
-            return String.Format("http://www.gravatar.com/avatar/{0}", hash);
+            return String.Format("http://www.gravatar.com/avatar/{0}?d=404", hash);
         }
 
 
